@@ -7,6 +7,4 @@ RUN apt-get update -y && apt-get upgrade -y \
 COPY . /app/
 WORKDIR /app/
 RUN pip3 install -r requirements.txt
-COPY start.sh /start.sh
-CMD ["/bin/bash", "/start.sh"]
-# CMD python3 bot.py
+CMD python3 modules/main.py
