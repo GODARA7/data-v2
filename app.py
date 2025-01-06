@@ -3,8 +3,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'GrryMatters'
+    return 'data-v2'
 
 
-if __name__ == "__main__":
+if __name__ == "main":
     app.run()
