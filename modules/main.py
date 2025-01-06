@@ -62,6 +62,25 @@ total_running_time = None
 max_running_time = None
 file_queue = []
 
+async def main():
+    if WEBHOOK:
+        # Start the web server
+        app_runner = web.AppRunner(await web_server())
+        await app_runner.setup()
+        site = web.TCPSite(app_runner, "0.0.0.0", PORT)
+        await site.start()
+        print(f"Web server started on port {PORT}")
+
+    # Start the bot
+    await start_bot()
+
+    # Keep the program running
+    try:
+        while True:
+            await bot.polling()  # Run forever, or until interrupted
+    except (KeyboardInterrupt, SystemExit):
+        await stop_bot()
+
 # Load initial data from files
 def load_initial_data():
     global log_channel_id, authorized_users, ALLOWED_CHANNEL_IDS, my_name, accept_logs
