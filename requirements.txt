@@ -28,5 +28,5 @@ Pillow
 pytube
 opencv-python-headless
 uvloop
-flask
-gunicorn
+Flask==1.1.2
+gunicorn==20.1.0
