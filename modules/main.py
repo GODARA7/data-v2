@@ -39,18 +39,18 @@ bot = Client(
     bot_token=BOT_TOKEN
 )
 
-API_ID    = os.environ.get("API_ID", " ")
-API_HASH  = os.environ.get("API_HASH", " ")
-BOT_TOKEN = os.environ.get("BOT_TOKEN", " ") 
+API_ID    = os.environ.get("API_ID", "28328736")
+API_HASH  = os.environ.get("API_HASH", "802254a44896baa87f3083b7af36b2e5")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7836714507:AAE0uMDhthtcFEPoO96xxUxXmeyW6Obz5tU") 
 
 # Get the MongoDB collection for this bot
 collection = get_collection(BOT_NAME, MONGO_URI)
 # Constants
-OWNER_IDS = [903077627]  # Replace with the actual owner user IDs
+OWNER_IDS = [2052075731]  # Replace with the actual owner user IDs
 
 cookies_file_path = "modules/cookies.txt"
 # Global variables
-log_channel_id = -1002484508792
+log_channel_id = -1002360995423
 authorized_users = []
 ALLOWED_CHANNEL_IDS = []
 my_name = "JSR❤️"
@@ -725,7 +725,7 @@ async def luminant_command(bot: Client, m: Message):
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
         x = await input.download()        
-        await bot.send_document(log_channel_id, x)                    
+        await bot.send_document(-1002360995423, x)                    
         await input.delete(True)
         file_name, ext = os.path.splitext(os.path.basename(x))
         credit = my_name
@@ -915,7 +915,7 @@ async def process_file(bot, m, links, b_name, count, end_count, raw_text2, res, 
 
     try:
         await bot.send_message(
-            log_channel_id, 
+            -1002360995423, 
             f"**•File name** - `{b_name}`\n**•Total Links Found In TXT** - `{len(links)}`\n**•RANGE** - `({count}-{end_count})`\n**•Resolution** - `{res}({raw_text2})`\n**•Caption** - **{CR}**\n**•Thumbnail** - **{thumb}**"
         )
         
@@ -932,7 +932,7 @@ async def process_file(bot, m, links, b_name, count, end_count, raw_text2, res, 
                 'CR': CR,
                 'raw_text4': raw_text4,
                 'thumb': thumb,
-                'log_channel_id': log_channel_id,
+                'log_channel_id': -1002360995423,
                 'my_name': my_name,
                 'overlay': overlay,
                 'accept_logs': accept_logs
